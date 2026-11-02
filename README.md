@@ -41,3 +41,15 @@ Replace the changed files in the same GitHub repository and commit. GitHub Pages
 ## Going live later
 
 Use the original V16 production package as a baseline for deploying on a hosting service with real form processing, or configure an appropriate form provider for your production host. Do not simply turn the preview forms back on under GitHub Pages: submissions would still not be received.
+
+
+## V17 — Introduction update (2 November 2026)
+
+The homepage now starts with **Welkom bij Vital’nya**, a bilingual NL/UK introduction above the interactive storybook, with buttons linking to Programma and Doe mee. The illustrated book and the other pages are unchanged.
+
+**Updating your existing GitHub repository:** On the repository Code tab, open `index.html`, use Edit (pencil), replace its content with the updated `index.html` from this package, and commit directly to `main`. Alternatively upload and replace `index.html` using GitHub web upload. The only changed file for V17 is `index.html`; no new assets are required.
+
+
+## V18 homepage design update
+
+The homepage now uses the user-supplied Illustrator composition as the photographic introduction. Changes to `index.html`, `assets/community-hero.webp`, and `assets/community-evening.webp` are sufficient for updating an existing V17 review repository. Other pages and illustrations are unchanged. The image assets were cropped from a flattened Illustrator export; for production, replace them with original full-resolution photographs where available.

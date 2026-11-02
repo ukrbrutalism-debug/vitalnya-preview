@@ -195,61 +195,97 @@ body{min-width:320px}
 }
 @media(max-width:750px){.intro-art{display:none}}
 
+
+/* V19 — refined homepage using the new high-resolution assets */
+.home-community-hero{background:#131a1f;overflow:hidden}
+.home-community-image{width:100%;position:relative;line-height:0;background:#162129;isolation:isolate}
+.home-community-image img{display:block;width:100%;height:min(74vh,760px);min-height:430px;object-fit:cover;object-position:center 36%}
+.home-community-image::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,18,22,.14) 0%,rgba(8,18,22,.1) 35%,rgba(7,17,22,.44) 100%)}
+.home-community-image::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;z-index:1;background:linear-gradient(180deg,rgba(13,22,28,0) 0%,rgba(13,22,28,.55) 100%)}
+.home-hero-wordmark{position:absolute;left:50%;bottom:clamp(56px,9vw,96px);transform:translateX(-50%);z-index:2;width:min(66vw,760px);filter:drop-shadow(0 6px 20px rgba(0,0,0,.28))}
+.home-hero-wordmark img{display:block;width:100%;height:auto}
+.home-community-bottom{position:absolute;bottom:18px;left:max(24px,calc((100vw - 1300px)/2));right:max(24px,calc((100vw - 1300px)/2));z-index:2;display:flex;justify-content:space-between;gap:18px;color:#fff7ea;font-size:11px;font-weight:800;letter-spacing:.18em;line-height:1.3;text-shadow:0 2px 10px rgba(0,0,0,.36)}
+.home-welcome{background:#78b6cb;color:#173b49;overflow:hidden;position:relative}
+.home-welcome::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;background:radial-gradient(circle at 8% 10%,#fff6ec 0%,transparent 32%),radial-gradient(circle at 85% 92%,#e5f1ef 0%,transparent 38%)}
+.home-welcome-grid{max-width:1370px;margin:0 auto;padding:clamp(65px,7vw,104px) 42px clamp(52px,5vw,82px);display:grid;grid-template-columns:minmax(0,1.14fr) minmax(320px,.82fr);align-items:center;gap:clamp(34px,6vw,92px);position:relative;z-index:1}
+.home-welcome-content{max-width:760px}
+.home-welcome-overline{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:800;letter-spacing:.19em;color:#173b49;margin:0 0 25px;line-height:1.35}
+.home-welcome-line{height:2px;width:40px;background:#f4ead9;flex:none}
+.home-welcome h1{font:700 clamp(54px,6.2vw,88px)/.98 Georgia,'Times New Roman',serif;letter-spacing:-.066em;color:#193744;margin:0 0 28px}
+.home-welcome h1 em{font-weight:500;font-style:italic;color:#244c5d}
+.home-welcome h2{font:700 clamp(19px,2vw,26px)/1.25 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#1a4252;margin:0 0 19px;letter-spacing:-.025em}
+.home-welcome-paragraph{font:400 clamp(17px,1.5vw,20px)/1.75 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#173b49;max-width:625px;margin:0 0 29px}
+.home-welcome-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.home-welcome-actions a{display:inline-flex;gap:24px;align-items:center;justify-content:space-between;padding:16px 21px;border-radius:100px;font-size:14px;font-weight:800;text-decoration:none;transition:background-color .2s ease,transform .2s ease,box-shadow .2s ease;min-height:50px}
+.home-welcome-actions a:hover{transform:translateY(-3px)}
+.home-btn-primary{color:#173745;background:#f5ead8;box-shadow:0 5px 16px rgba(34,85,103,.18)}
+.home-btn-primary:hover{background:#fffaf3}
+.home-btn-secondary{color:#173745;border:1.5px solid #275a6c;background:#ffffff14}
+.home-btn-secondary:hover{background:#eef7f08a}
+.home-welcome-definition{display:flex;gap:11px;align-items:center;color:#173b49;font:500 13px/1.5 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;margin:0}
+.home-welcome-definition b{font-weight:800;color:#163947}
+.home-definition-mark{font-size:20px;color:#fff4d9}
+.home-welcome-photo{margin:0;max-width:445px;width:100%;justify-self:center;position:relative}
+.home-photo-frame{overflow:hidden;border-radius:28px;background:#d7ebef;box-shadow:0 10px 32px rgba(20,63,76,.16)}
+.home-photo-frame img{display:block;width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;object-position:center 60%;filter:contrast(1.03) saturate(1.03)}
+.home-welcome-photo figcaption{font:italic 15px/1.5 Georgia,'Times New Roman',serif;max-width:390px;color:#173b49;margin:16px auto 0;text-align:center}
+.home-welcome-edge{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;max-width:1370px;margin:0 auto;padding:18px 42px 20px;border-top:1px solid #20516332;font:800 10px/1.5 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;letter-spacing:.19em;color:#245769}
+#story{padding-top:52px}
+#story .story-preface{padding-top:28px;padding-bottom:30px}
+/* featured programme card */
+.spotlight-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(290px,.92fr);gap:32px;align-items:stretch}
+.spotlight-feature-card{display:flex;flex-direction:column;justify-content:space-between;gap:18px;background:linear-gradient(180deg,#f8f1e5 0%,#f1e3d1 100%);border:1px solid rgba(41,74,90,.12);border-radius:30px;padding:28px;box-shadow:0 14px 32px rgba(36,63,74,.08);min-height:100%}
+.spotlight-feature-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}
+.spotlight-feature-kicker{display:inline-flex;align-items:center;gap:8px;background:#fffaf2;color:#2a5162;border:1px solid rgba(39,89,108,.18);padding:8px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.spotlight-feature-kicker::before{content:"";width:7px;height:7px;border-radius:999px;background:#7cb7cf;display:block}
+.spotlight-feature-brand{max-width:150px;opacity:.94}
+.spotlight-feature-brand img{display:block;width:100%;height:auto}
+.spotlight-feature-schedule{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.spotlight-feature-slot{background:#ffffffa8;border-radius:18px;padding:14px 16px;border:1px solid rgba(41,74,90,.08)}
+.spotlight-feature-slot strong{display:block;color:#214555;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
+.spotlight-feature-slot span{display:block;color:#365a68;font-size:15px;line-height:1.45}
+.spotlight-feature-card h3{font:700 clamp(31px,3vw,42px)/1.02 Georgia,'Times New Roman',serif;letter-spacing:-.04em;color:#193744;margin:0}
+.spotlight-feature-card p{margin:0;color:#4a5f68;font-size:16px;line-height:1.65}
+.spotlight-feature-tags{display:flex;flex-wrap:wrap;gap:9px;margin:0;padding:0;list-style:none}
+.spotlight-feature-tags li{padding:8px 12px;border-radius:999px;background:#2a51620d;border:1px solid rgba(39,89,108,.12);font-size:12px;font-weight:700;color:#2a5162}
+.spotlight-feature-quote{margin-top:auto;padding-top:8px;border-top:1px solid rgba(41,74,90,.12);font:italic 25px/1.15 Georgia,'Times New Roman',serif;color:#284b5b}
+.spotlight-feature-foot{display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:800;letter-spacing:.12em;color:#5a7886;text-transform:uppercase}
+@media(max-width:960px){.home-community-image img{height:min(60vh,620px)}.home-welcome-grid{grid-template-columns:minmax(0,1fr) minmax(265px,.68fr);gap:35px;padding:65px 28px 55px}.home-welcome h1{font-size:clamp(47px,6.3vw,70px)}.home-welcome-paragraph{font-size:17px}.home-community-bottom{left:22px;right:22px}.home-welcome-edge{padding-inline:28px}.home-hero-wordmark{width:min(74vw,620px)}.spotlight-layout{grid-template-columns:1fr;gap:22px}}
+@media(max-width:760px){.home-community-image img{height:min(54vh,470px);min-height:320px;object-position:center 32%}.home-hero-wordmark{width:min(79vw,420px);bottom:55px}.home-welcome-grid{grid-template-columns:1fr;gap:35px;padding:56px 24px 54px}.home-welcome h1{font-size:clamp(47px,9.8vw,72px);margin-bottom:23px}.home-welcome h2{font-size:21px}.home-welcome-overline{font-size:10px;margin-bottom:20px}.home-welcome-photo{max-width:440px;justify-self:start}.home-welcome-edge{padding:17px 24px}.home-welcome-edge span:nth-child(2){display:none}#story{padding-top:26px}.spotlight-feature-schedule{grid-template-columns:1fr}.spotlight-feature-card{padding:22px;border-radius:24px}.spotlight-feature-brand{max-width:126px}}
+@media(max-width:480px){.home-community-bottom{bottom:11px;left:14px;right:14px;font-size:8px;letter-spacing:.095em}.home-community-bottom span:last-child{display:none}.home-hero-wordmark{width:min(84vw,330px);bottom:42px}.home-welcome-grid{padding:44px 21px 45px;gap:31px}.home-welcome h1{font-size:clamp(43px,11vw,56px)}.home-welcome h2{font-size:19px}.home-welcome-paragraph{font-size:16px;line-height:1.65}.home-welcome-actions{gap:10px}.home-welcome-actions a{font-size:13px;padding:14px 17px;gap:12px}.home-welcome-definition{font-size:12px}.home-welcome-photo figcaption{font-size:14px}.home-welcome-edge{padding-inline:21px}.spotlight-feature-card h3{font-size:32px}.spotlight-feature-quote{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.home-welcome-actions a{transition:none}}
+
 </style><meta content="Vital’nya is het Oekraïense Huis in Utrecht: een warme ontmoetingsplek voor gemeenschap, taal, cultuur en steun. Ontdek ons verhaal en programma." name="description"/><meta name="robots" content="noindex,nofollow,noarchive">
 </head><body><input checked="" class="page-state" id="pg1" name="page" type="radio"/><input class="page-state" id="pg2" name="page" type="radio"/><input class="page-state" id="pg3" name="page" type="radio"/><input class="page-state" id="pg4" name="page" type="radio"/><input class="page-state" id="pg5" name="page" type="radio"/><input class="page-state" id="pg6" name="page" type="radio"/><input class="page-state" id="pg7" name="page" type="radio"/><input checked="" class="language-state" id="nl" name="lang" type="radio"/><input class="language-state" id="uk" name="lang" type="radio"/><div class="site"><div class="review-ribbon" role="status"><span class="nl"><strong>TESTVERSIE VOOR REVIEW</strong> · Geen echte inschrijvingen of betalingen mogelijk</span><span class="uk" lang="uk"><strong>ТЕСТОВА ВЕРСІЯ</strong> · Реєстрація та оплата вимкнені</span></div><header class="header"><a aria-label="Vital’nya home" href="index.html#intro"><img alt="Vital’nya" src="assets/logo-horizontal.png"/></a><nav aria-label="Hoofdnavigatie" class="links"><a aria-current="page" href="index.html#story"><span class="nl">Het verhaal</span><span class="uk" lang="uk">Історія</span></a><a href="programma.html"><span class="nl">Programma</span><span class="uk" lang="uk">Програма</span></a><a href="doe-mee.html"><span class="nl">Doe mee</span><span class="uk" lang="uk">Долучитися</span></a><a href="contact.html"><span class="nl">Contact</span><span class="uk" lang="uk">Контакт</span></a></nav><div class="tools"><div aria-label="Taal" class="language"><label aria-label="Nederlands" for="nl" role="button" tabindex="0">NL</label>/<label aria-label="Українська" for="uk" role="button" tabindex="0">УКР</label></div><a class="donate" href="doe-mee.html#mogelijkheden" rel="noopener noreferrer" target="_blank"><span class="nl">Steun ons ↗</span><span class="uk" lang="uk">Підтримати ↗</span></a><details><summary aria-label="Menu openen">☰</summary><nav aria-label="Mobiele navigatie"><a aria-current="page" href="index.html#story"><span class="nl">Het verhaal</span><span class="uk" lang="uk">Історія</span></a><a href="programma.html"><span class="nl">Programma</span><span class="uk" lang="uk">Програма</span></a><a href="doe-mee.html"><span class="nl">Doe mee</span><span class="uk" lang="uk">Долучитися</span></a><a href="contact.html"><span class="nl">Contact</span><span class="uk" lang="uk">Контакт</span></a></nav></details></div></header><main>
-<section class="intro-hero" id="intro" aria-labelledby="intro-title">
-  <div class="intro-inner">
-    <div class="intro-copy">
-      <p class="intro-overline"><span class="nl">WELKOM BIJ VITAL’NYA · UKRAINIAN HOUSE UTRECHT</span><span class="uk" lang="uk">ВІТАЄМО У ВІТАЛЬНІ · УКРАЇНСЬКИЙ ДІМ В УТРЕХТІ</span></p>
-      <h1 id="intro-title"><span class="nl">Een tweede thuis,<br/><em>ver van huis.</em></span><span class="uk" lang="uk">Другий дім,<br/><em>далеко від дому.</em></span></h1>
-      <p class="intro-description"><span class="nl">Vital’nya is het Oekraïense Huis in Utrecht: een warme ontmoetingsplek voor en door Oekraïners, samen met Utrechters. Sinds 2022 brengen we mensen samen om elkaar te steunen, talen te oefenen, cultuur te delen en zelf activiteiten te organiseren.</span><span class="uk" lang="uk">Вітальня — український дім в Утрехті: теплий простір для українців і місцевої громади. З 2022 року ми об’єднуємо людей, підтримуємо одне одного, вивчаємо мови, ділимося культурою та разом створюємо події.</span></p>
-      <div class="intro-actions">
-        <a class="primary" href="programma.html"><span class="nl">Bekijk het programma</span><span class="uk" lang="uk">Переглянути програму</span><span aria-hidden="true">↗</span></a>
-        <a class="secondary" href="doe-mee.html"><span class="nl">Doe mee</span><span class="uk" lang="uk">Долучитися</span><span aria-hidden="true">↗</span></a>
-      </div>
-      <p class="intro-definition"><span class="nl"><b>Вітальня / Vital’nya</b> — Oekraïens voor <em>huiskamer</em>.</span><span class="uk" lang="uk"><b>Вітальня</b> — це місце, де завжди раді гостям.</span></p>
-    </div>
-    <div class="intro-art" aria-hidden="true">
-      <svg viewBox="0 0 500 510" xmlns="http://www.w3.org/2000/svg" role="presentation">
-        <defs>
-          <pattern id="paperstitch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M0 11L11 0" stroke="#d5b1a0" stroke-width=".5" opacity=".28"/></pattern>
-          <linearGradient id="warmroom" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f6dfb4"/><stop offset="1" stop-color="#f3c58e"/></linearGradient>
-          <linearGradient id="blueframe" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6cafc6"/><stop offset="1" stop-color="#31657c"/></linearGradient>
-        </defs>
-        <circle cx="318" cy="158" r="114" fill="#d9e5e4" opacity=".7"/><circle cx="390" cy="142" r="49" fill="#dfab83" opacity=".8"/>
-        <path d="M120 427V168C120 84 176 39 254 39S388 84 388 168V427Z" fill="#fdf2df" stroke="#a8bbc0" stroke-width="5"/>
-        <path d="M143 427V169C143 102 189 64 254 64S365 102 365 169V427Z" fill="url(#warmroom)"/>
-        <path d="M141 427V167C141 101 188 63 254 63S367 101 367 167V427" fill="none" stroke="url(#blueframe)" stroke-width="17"/>
-        <path d="M141 425V169Q141 103 188 71L188 425Z" fill="#6db4c7" stroke="#315c6d" stroke-width="3"/>
-        <path d="M141 169Q141 106 189 72L187 416L141 425Z" fill="url(#paperstitch)"/>
-        <path d="M169 210v132M152 275h29" stroke="#d2e7df" stroke-width="2" opacity=".9"/>
-        <path d="M367 169Q367 102 319 73V414L367 427Z" fill="#54899f" stroke="#315c6d" stroke-width="3"/>
-        <path d="M334 207v125M326 277h30" stroke="#d8ede8" stroke-width="2" opacity=".8"/>
-        <path d="M207 422V251L207 210C207 178 228 155 254 155s47 23 47 55v212Z" fill="#f4e4c7" opacity=".45"/>
-        <circle cx="259" cy="153" r="34" fill="#f1c46b" opacity=".75"/>
-        <path d="M199 331q54-25 110 0v17q-53 23-110 0z" fill="#e8c28b" opacity=".75"/>
-        <path d="M210 336c8-51 21-60 32-67 15-7 24 8 29 40M273 337c8-48 22-58 35-72" fill="none" stroke="#49788b" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="239" cy="259" r="17" fill="#d8a97c"/><circle cx="297" cy="251" r="15" fill="#cd9d77"/>
-        <path d="M223 291c12-23 28-23 40 0l9 46h-59zM280 285c10-18 26-18 35 0l9 51h-52z" fill="#30596c"/>
-        <path d="M200 347h118l18 13H186Z" fill="#be8e66"/><path d="M211 359v63M306 359v63" stroke="#805e4d" stroke-width="9"/>
-        <path d="M234 343v-15h13v15M276 343v-15h13v15" fill="#f5f0e5" stroke="#7096a2" stroke-width="2"/>
-        <path d="M247 330v-30M247 315q-18-17-16-32M247 309q14-23 28-28" fill="none" stroke="#698e64" stroke-width="3"/>
-        <g transform="translate(245 295)"><circle r="13" fill="#d79948"/>
-          <g fill="#eabf5f"><ellipse rx="7" ry="17" transform="rotate(0) translate(0,-17)"/><ellipse rx="7" ry="17" transform="rotate(45) translate(0,-17)"/><ellipse rx="7" ry="17" transform="rotate(90) translate(0,-17)"/><ellipse rx="7" ry="17" transform="rotate(135) translate(0,-17)"/><ellipse rx="7" ry="17" transform="rotate(180) translate(0,-17)"/><ellipse rx="7" ry="17" transform="rotate(225) translate(0,-17)"/><ellipse rx="7" ry="17" transform="rotate(270) translate(0,-17)"/><ellipse rx="7" ry="17" transform="rotate(315) translate(0,-17)"/></g>
-          <circle r="10" fill="#74534b"/>
-        </g>
-        <g fill="#658f79" opacity=".95"><path d="M95 419q-46-46-39-104 52 31 39 104"/><path d="M91 428q17-63 58-80-1 49-58 80"/><path d="M418 428q-18-68-46-85-9 52 46 85"/><path d="M420 431q3-60 49-75-3 46-49 75"/></g>
-        <path d="M38 439Q250 451 463 439" fill="none" stroke="#b78573" stroke-width="2" stroke-dasharray="5 7"/>
-        <path d="M64 449q94 18 182 1t193-1" fill="none" stroke="#6b9aac" stroke-width="3"/>
-        <path d="M64 455q94 18 182 1t193-1" fill="none" stroke="#d8b4a3" stroke-width="2"/>
-        <g fill="#c9796e"><circle cx="94" cy="271" r="5"/><circle cx="108" cy="264" r="4"/><circle cx="397" cy="290" r="5"/><circle cx="410" cy="301" r="4"/></g>
-        <g stroke="#8ea79c" stroke-width="2" fill="none"><path d="M93 420q-2-89 1-155"/><path d="M410 422q-19-63-13-133"/></g>
-        <g fill="#f6d3c0"><circle cx="91" cy="269" r="10"/><circle cx="100" cy="278" r="10"/><circle cx="85" cy="279" r="10"/><circle cx="94" cy="290" r="10"/><circle cx="401" cy="307" r="11"/><circle cx="390" cy="315" r="10"/><circle cx="411" cy="317" r="10"/><circle cx="399" cy="326" r="10"/></g>
-        <g fill="#bf826e"><circle cx="93" cy="279" r="5"/><circle cx="401" cy="315" r="5"/></g>
-        <path d="M184 479h142" stroke="#7a9aa7" stroke-width="1.5"/>
-      </svg>
+<section class="home-community-hero" aria-label="Vital’nya community today">
+  <div class="home-community-image">
+    <img src="assets/community-hero-v19.webp" width="1440" height="1081" fetchpriority="high" alt="Groepsfoto van leden van de Vital’nya-gemeenschap in Utrecht." />
+    <div class="home-hero-wordmark" aria-hidden="true"><img src="assets/hero-wordmark.png" width="2048" height="428" alt=""/></div>
+    <div class="home-community-bottom" aria-hidden="true">
+      <span class="nl">ECHTE MENSEN. ECHTE VERHALEN.</span><span class="uk" lang="uk">СПРАВЖНІ ЛЮДИ. СПРАВЖНІ ІСТОРІЇ.</span>
+      <span>UTRECHT · 2022 — NU</span>
     </div>
   </div>
+</section>
+<section class="home-welcome" id="intro" aria-labelledby="home-welcome-heading">
+  <div class="home-welcome-grid">
+    <div class="home-welcome-content">
+      <div class="home-welcome-overline"><span class="home-welcome-line"></span><span class="nl">WELKOM BIJ VITAL’NYA</span><span class="uk" lang="uk">ЛАСКАВО ПРОСИМО ДО ВІТАЛЬНІ</span></div>
+      <h1 id="home-welcome-heading"><span class="nl">Een tweede thuis,<br><em>ver van huis.</em></span><span class="uk" lang="uk">Другий дім,<br><em>далеко від дому.</em></span></h1>
+      <h2><span class="nl">Het Oekraïense Huis in Utrecht</span><span class="uk" lang="uk">Український дім в Утрехті</span></h2>
+      <p class="home-welcome-paragraph"><span class="nl">Vital’nya is een warme ontmoetingsplek voor en door Oekraïners, samen met Utrechters. Sinds 2022 brengen we mensen samen om elkaar te steunen, talen te oefenen, cultuur te delen en zelf activiteiten te organiseren.</span><span class="uk" lang="uk">Вітальня — це теплий простір для українців і мешканців Утрехта. З 2022 року ми об’єднуємо людей, підтримуємо одне одного, вивчаємо мови, ділимося культурою та разом організовуємо події.</span></p>
+      <div class="home-welcome-actions">
+        <a href="programma.html" class="home-btn-primary"><span class="nl">Ontdek ons programma</span><span class="uk" lang="uk">Наша програма</span><span aria-hidden="true">↗</span></a>
+        <a href="doe-mee.html" class="home-btn-secondary"><span class="nl">Doe mee</span><span class="uk" lang="uk">Долучитися</span><span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="home-welcome-definition"><span class="home-definition-mark" aria-hidden="true">✳</span><span class="nl"><b>Вітальня / Vital’nya</b> betekent ‘huiskamer’ in het Oekraïens.</span><span class="uk" lang="uk"><b>Вітальня</b> — місце, де всі можуть почуватися як удома.</span></p>
+    </div>
+    <figure class="home-welcome-photo">
+      <div class="home-photo-frame"><img src="assets/community-evening-v19.webp" width="452" height="509" loading="lazy" alt="Vital’nya-gemeenschap samen buiten in Utrecht tijdens een avondbijeenkomst." /></div>
+      <figcaption><span class="nl">Een gemeenschap die samenkomt, ook buiten de huiskamer.</span><span class="uk" lang="uk">Спільнота, яка зустрічається і поза межами вітальні.</span></figcaption>
+    </figure>
+  </div>
+  <div class="home-welcome-edge" aria-hidden="true"><span>VITAL’NYA</span><span>UKRAINIAN HOUSE UTRECHT</span><span>ВІТАЛЬНЯ</span></div>
 </section>
 <section class="book-area" id="story">
 <div class="story-preface">
@@ -277,11 +313,24 @@ body{min-width:320px}
 <div class="spotlight-meta"><span>✳ <span class="nl">Vrijdag &amp; zondag</span><span class="uk" lang="uk">П’ятниця й неділя</span></span><span>◷ <span class="nl">Wekelijkse activiteit</span><span class="uk" lang="uk">Щотижнева подія</span></span></div>
 <a class="spotlight-cta" href="programma.html#program"><span class="nl">Bekijk het volledige programma</span><span class="uk" lang="uk">Переглянути повну програму</span> <span aria-hidden="true">↗</span></a>
 </div>
-<div aria-hidden="true" class="spotlight-art">
-<div class="spotlight-art-label">VITAL’NYA<br/>Ukrainian House Utrecht</div>
-<div class="spotlight-flowers"><svg viewbox="0 0 410 420" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#8ab6b6" stroke-linecap="round" stroke-width="2.5"><path d="M208 380 C209 319 193 279 209 212"></path><path d="M206 301 Q137 238 80 263"></path><path d="M211 283 Q273 217 342 248"></path></g><g fill="#9fac86"><path d="M191 288Q114 250 119 207Q168 203 191 288"></path><path d="M224 318Q294 296 312 262Q251 250 224 318"></path></g><g transform="translate(210 171)"><g fill="#eac04b"><ellipse cy="-82" rx="18" ry="58"></ellipse><ellipse cy="82" rx="18" ry="58"></ellipse><ellipse cx="-82" rx="58" ry="18"></ellipse><ellipse cx="82" rx="58" ry="18"></ellipse><ellipse cy="-82" rx="18" ry="58" transform="rotate(45)"></ellipse><ellipse cy="-82" rx="18" ry="58" transform="rotate(90)"></ellipse><ellipse cy="-82" rx="18" ry="58" transform="rotate(135)"></ellipse><ellipse cy="-82" rx="18" ry="58" transform="rotate(225)"></ellipse></g><circle fill="#26536b" r="55"></circle><g fill="#72b9d2"><circle cx="-20" cy="-19" r="7"></circle><circle cx="1" cy="-23" r="7"></circle><circle cx="21" cy="-13" r="7"></circle><circle cx="-22" cy="6" r="8"></circle><circle cy="8" r="7"></circle><circle cx="23" cy="10" r="6"></circle><circle cx="-12" cy="28" r="6"></circle><circle cx="15" cy="31" r="6"></circle></g></g><g fill="none" opacity=".65" stroke="#e1c6a1" stroke-width="1.6"><path d="M30 395 Q200 355 380 396"></path><path d="M30 404 Q200 364 380 405"></path></g></svg></div>
-<div class="spotlight-note"><span class="nl">Een plek om<br/>ideeën te delen.</span><span class="uk" lang="uk">Місце, де<br/>діляться ідеями.</span></div>
-<div class="spotlight-bottom-label">SAMEN MAKEN WE DE GEMEENSCHAP</div>
+<div aria-hidden="true" class="spotlight-art spotlight-feature-card">
+<div class="spotlight-feature-top">
+<div class="spotlight-feature-kicker"><span class="nl">Uitgelichte activiteit</span><span class="uk" lang="uk">Головна подія</span></div>
+<div class="spotlight-feature-brand"><img src="assets/logo-horizontal.png" alt=""/></div>
+</div>
+<h3><span class="nl">Community workshops</span><span class="uk" lang="uk">Майстер-класи спільноти</span></h3>
+<p><span class="nl">Een open moment waarop communityleden elkaar ontmoeten, kennis delen en samen iets maken.</span><span class="uk" lang="uk">Відкрита подія, де учасники спільноти зустрічаються, діляться знаннями й створюють щось разом.</span></p>
+<div class="spotlight-feature-schedule">
+<div class="spotlight-feature-slot"><strong><span class="nl">Vrijdag</span><span class="uk" lang="uk">П’ятниця</span></strong><span>18:00 — 21:00</span></div>
+<div class="spotlight-feature-slot"><strong><span class="nl">Zondag</span><span class="uk" lang="uk">Неділя</span></strong><span>10:00 — 19:30</span></div>
+</div>
+<ul class="spotlight-feature-tags">
+<li><span class="nl">Voor &amp; door de community</span><span class="uk" lang="uk">Від спільноти — для спільноти</span></li>
+<li><span class="nl">Creatief</span><span class="uk" lang="uk">Творчість</span></li>
+<li><span class="nl">Iedereen welkom</span><span class="uk" lang="uk">Запрошуємо всіх</span></li>
+</ul>
+<div class="spotlight-feature-quote"><span class="nl">Een plek om ideeën te delen.</span><span class="uk" lang="uk">Місце, де можна ділитися ідеями.</span></div>
+<div class="spotlight-feature-foot"><span>VITAL’NYA</span><span>NOVEMBER</span></div>
 </div>
 </div>
 <div class="spotlight-foot"><span class="nl">Alle tijden en activiteiten vind je op de aparte Programma-pagina.</span><span class="uk" lang="uk">Усі години та події — на окремій сторінці програми.</span><a href="programma.html#program"><span class="nl">Bekijk het volledige programma</span><span class="uk" lang="uk">Переглянути повну програму</span> ↗</a></div>

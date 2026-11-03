@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#12191f" name="theme-color"/>
+<title>Vital’nya | Het verhaal — Ukrainian House Utrecht</title>
+<style>
+:root{--dark:#12191f;--light:#f3e9db;--ink:#23343d;--blue:#6fb7d0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:92px;}
+body{margin:0;background:#12191f;color:#f3e9db;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;min-width:320px}
+a{color:inherit}
+label{cursor:pointer}
+a:focus-visible,label:focus-visible{outline:3px solid #f1ce7d;outline-offset:5px}
+img{display:block;max-width:100%}
+.page-state,.language-state{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+
+/* LANGUAGE TOGGLE */
+#nl:checked~.site .uk,#uk:checked~.site .nl{display:none!important}
+#nl:checked~.site label[for="nl"],#uk:checked~.site label[for="uk"]{opacity:1;color:#c3effc}
+
+/* HEADER & NAVIGATION */
+.header{position:relative;z-index:30;height:82px;display:flex;align-items:center;justify-content:space-between;max-width:1420px;margin:auto;padding:14px 30px;gap:20px}
+.header img{width:175px}
+.links{display:flex;align-items:center;gap:30px}
+.links a{text-decoration:none;font-size:14px;font-weight:650}
+.links a:hover{color:#93cce1}
+.header .links a[aria-current="page"],.header details nav a[aria-current="page"]{color:#86d0e6;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:7px}
+.tools{display:flex;align-items:center;gap:14px}
+.language{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:800}
+.language label{opacity:.55;padding:6px}
+.donate{display:block;border-radius:30px;padding:13px 20px;background:#f4e8d6;color:#15262e;text-decoration:none;font-size:13px;font-weight:800}
+.donate:hover{background:#c4e2e8}
+
+/* MOBILE NAV ANIMATION */
+.header details{display:none}
+.header summary{list-style:none;font-size:26px;cursor:pointer}
+.header details nav {
+    position:absolute;z-index:10;right:18px;top:72px;background:#1f303b;padding:20px;border-radius:16px;box-shadow:0 14px 30px #0006;
+    display:grid;gap:18px;
+    opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; pointer-events: none;
+}
+.header details[open] nav {
+    opacity: 1; transform: translateY(0); pointer-events: auto;
+}
+.header details nav a{font-weight:700;text-decoration:none}
+
+/* HERO SECTION - UPDATED TO MATCH REFERENCE */
+.home-community-hero{background:#131a1f;overflow:hidden}
+.home-community-image{width:100%;position:relative;line-height:0;background:#162129;isolation:isolate; height: 100vh; max-height: 800px; display: flex; align-items: center; justify-content: center;}
+.home-community-image img.bg-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+
+/* Warm translucent wash overlay to mimic reference */
+.home-community-image::before{
+    content:""; position:absolute; inset:0; z-index:1;
+    background: rgba(240, 235, 230, 0.45); 
+}
+.home-hero-wordmark{
+    position:absolute; z-index:2; 
+    width:min(80vw, 700px); 
+    filter:drop-shadow(0 4px 15px rgba(0,0,0,0.15));
+}
+.home-hero-wordmark img{display:block;width:100%;height:auto}
+.home-community-bottom{position:absolute;bottom:18px;left:max(24px,calc((100vw - 1300px)/2));right:max(24px,calc((100vw - 1300px)/2));z-index:2;display:flex;justify-content:space-between;gap:18px;color:#fff7ea;font-size:11px;font-weight:800;letter-spacing:.18em;line-height:1.3;text-shadow:0 2px 10px rgba(0,0,0,.36)}
+
+/* WELCOME SECTION */
+.home-welcome{background:#78b6cb;color:#173b49;overflow:hidden;position:relative}
+.home-welcome::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;background:radial-gradient(circle at 8% 10%,#fff6ec 0%,transparent 32%),radial-gradient(circle at 85% 92%,#e5f1ef 0%,transparent 38%)}
+.home-welcome-grid{max-width:1370px;margin:0 auto;padding:clamp(65px,7vw,104px) 42px clamp(52px,5vw,82px);display:grid;grid-template-columns:minmax(0,1.14fr) minmax(320px,.82fr);align-items:center;gap:clamp(34px,6vw,92px);position:relative;z-index:1}
+.home-welcome-content{max-width:760px}
+.home-welcome-overline{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:800;letter-spacing:.19em;color:#173b49;margin:0 0 25px;line-height:1.35}
+.home-welcome-line{height:2px;width:40px;background:#f4ead9;flex:none}
+.home-welcome h1{font:700 clamp(54px,6.2vw,88px)/.98 Georgia,'Times New Roman',serif;letter-spacing:-.066em;color:#193744;margin:0 0 28px}
+.home-welcome h1 em{font-weight:500;font-style:italic;color:#244c5d}
+.home-welcome h2{font:700 clamp(19px,2vw,26px)/1.25 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#1a4252;margin:0 0 19px;letter-spacing:-.025em}
+.home-welcome-paragraph{font:400 clamp(17px,1.5vw,20px)/1.75 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#173b49;max-width:625px;margin:0 0 29px}
+.home-welcome-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.home-welcome-actions a{display:inline-flex;gap:24px;align-items:center;justify-content:space-between;padding:16px 21px;border-radius:100px;font-size:14px;font-weight:800;text-decoration:none;transition:background-color .2s ease,transform .2s ease,box-shadow .2s ease;min-height:50px}
+.home-welcome-actions a:hover{transform:translateY(-3px)}
+.home-btn-primary{color:#173745;background:#f5ead8;box-shadow:0 5px 16px rgba(34,85,103,.18)}
+.home-btn-primary:hover{background:#fffaf3}
+.home-btn-secondary{color:#173745;border:1.5px solid #275a6c;background:#ffffff14}
+.home-btn-secondary:hover{background:#eef7f08a}
+.home-welcome-definition{display:flex;gap:11px;align-items:center;color:#173b49;font:500 13px/1.5 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;margin:0}
+.home-welcome-definition b{font-weight:800;color:#163947}
+.home-definition-mark{font-size:20px;color:#fff4d9}
+.home-welcome-photo{margin:0;max-width:445px;width:100%;justify-self:center;position:relative}
+.home-photo-frame{overflow:hidden;border-radius:28px;background:#d7ebef;box-shadow:0 10px 32px rgba(20,63,76,.16)}
+.home-photo-frame img{display:block;width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;object-position:center 60%;filter:contrast(1.03) saturate(1.03)}
+.home-welcome-photo figcaption{font:italic 15px/1.5 Georgia,'Times New Roman',serif;max-width:390px;color:#173b49;margin:16px auto 0;text-align:center}
+.home-welcome-edge{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;max-width:1370px;margin:0 auto;padding:18px 42px 20px;border-top:1px solid #20516332;font:800 10px/1.5 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;letter-spacing:.19em;color:#245769}
+
+/* STORY BOOK AREA - CONVERTED TO SCROLL SNAPPING */
+#story{padding-top:52px}
+.book-area{max-width:1450px;margin:auto;padding:12px 32px 85px}
+.story-preface{display:flex;justify-content:space-between;align-items:end;gap:32px;padding:28px 0 30px;color:#f4eee3;border-bottom:1px solid #aec8d030;margin-bottom:13px}
+.story-preface-label{font-size:11px;color:#7fc3da;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin:0 0 12px}
+.story-preface h2{font:normal clamp(30px,3vw,47px)/1.11 Georgia,"Times New Roman",serif;letter-spacing:-.035em;margin:0 0 10px;max-width:820px}
+.story-preface p{font-size:14px;color:#bdcbd0;line-height:1.65;margin:0;max-width:680px}
+.story-preface-link{color:#e3d4bd;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:.04em;border-bottom:1px solid #e3d4bd66;white-space:nowrap;padding-bottom:6px;margin-bottom:6px}
+.story-preface-link:hover{color:#fff}
+.sup{display:flex;justify-content:space-between;gap:24px;align-items:center;font-size:11px;letter-spacing:.15em;font-weight:800;color:#b8c2c7;text-transform:uppercase;padding:15px 1px}
+.sup b{color:#72bdd8}
+
+/* Vertical Scroll Snapping Layout */
+.book-viewport {
+    height: 85vh;
+    max-height: 900px;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    background: #f4e9d9;
+    box-shadow: 0 24px 65px #000a;
+}
+.page {
+    display: block !important;
+    min-height: 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+}
+.sheet{position:relative; width: 100%; height: 100%;}
+.art-wrap{position:relative; width: 100%; height: 100%;}
+.art-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+
+/* Caption formatting */
+.caption-block{position:absolute;left:6.4%;top:11.5%;width:31%;color:#293b44;z-index:2}
+.caption-block:before{content:"";position:absolute;inset:-36px -22px -45px -32px;z-index:-1;background:linear-gradient(to right,rgba(246,236,222,.98) 0%,rgba(246,236,222,.90) 75%,transparent 100%);border-radius:4px}
+.caption-block small{display:block;color:#7e4940;font-size:11px;text-transform:uppercase;letter-spacing:.17em;font-weight:900;margin-bottom:18px}
+.caption-block h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(38px,4.35vw,69px);line-height:.98;letter-spacing:-.052em;font-weight:650;margin:0 0 11px}
+.caption-block em{display:block;font:italic clamp(20px,2.05vw,30px)/1.19 Georgia,serif;margin-bottom:20px}
+.caption-block p{font:clamp(15px,1.45vw,21px)/1.45 Georgia,serif;margin:0;max-width:340px}
+.chapnum{position:absolute;right:4%;bottom:5%;font-size:10px;font-weight:800;letter-spacing:.15em;color:#3f5763;text-transform:uppercase}
+.visually-hidden{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+
+/* Hide legacy flip artifacts */
+.flip-stage, .navrow { display: none !important; }
+
+/* FADE-IN OBSERVER CLASSES */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* PROGRAM SPOTLIGHT */
+.spotlight-program{padding-top:76px;padding-bottom:74px; background:#e9ddcb;color:#233b46;}
+.spotlight-head,.spotlight-foot{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.spotlight-head{margin-bottom:25px}.spotlight-head .kicker{margin:0;font-size:12px;letter-spacing:.18em;font-weight:800;color:#628b9b;text-transform:uppercase;}
+.spotlight-period{font-size:12px;letter-spacing:.13em;color:#648898;font-weight:800}
+.spotlight-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(290px,.92fr);gap:32px;align-items:stretch;max-width: 1400px; margin: 0 auto;}
+.spotlight-content{padding:clamp(28px,4.2vw,64px) 0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.spotlight-overline{color:#5e8b9e;font-size:12px!important;letter-spacing:.16em;font-weight:800;text-transform:uppercase;margin:0 0 22px!important;display:flex;align-items:center;gap:10px}
+.spotlight-blue-dot{display:inline-block;width:10px;height:10px;background:#6fb7d0;border-radius:50%}
+.spotlight-content h2{font:650 clamp(49px,5.3vw,77px)/1.01 Georgia,serif;letter-spacing:-.055em;margin:0 0 26px!important;max-width:680px}
+.spotlight-description{font-size:clamp(16px,1.5vw,20px)!important;line-height:1.55;margin:0 0 26px!important;max-width:560px}
+.spotlight-meta{display:flex;gap:22px;flex-wrap:wrap;font-weight:700;font-size:13px;color:#627f8a;margin:0 0 28px}
+.spotlight-cta{display:inline-flex;align-items:center;gap:30px;border-radius:100px;background:#203745;color:#fdf5e9;padding:16px 24px;font-size:14px;font-weight:800;text-decoration:none;transition:transform .2s,background .2s}
+.spotlight-cta:hover,.spotlight-cta:focus-visible{background:#325666;transform:translateY(-2px)}
+.spotlight-feature-card{display:flex;flex-direction:column;justify-content:space-between;gap:18px;background:linear-gradient(180deg,#f8f1e5 0%,#f1e3d1 100%);border:1px solid rgba(41,74,90,.12);border-radius:30px;padding:28px;box-shadow:0 14px 32px rgba(36,63,74,.08);min-height:100%}
+.spotlight-feature-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}
+.spotlight-feature-kicker{display:inline-flex;align-items:center;gap:8px;background:#fffaf2;color:#2a5162;border:1px solid rgba(39,89,108,.18);padding:8px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.spotlight-feature-kicker::before{content:"";width:7px;height:7px;border-radius:999px;background:#7cb7cf;display:block}
+.spotlight-feature-brand{max-width:150px;opacity:.94}
+.spotlight-feature-schedule{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.spotlight-feature-slot{background:#ffffffa8;border-radius:18px;padding:14px 16px;border:1px solid rgba(41,74,90,.08)}
+.spotlight-feature-slot strong{display:block;color:#214555;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
+.spotlight-feature-slot span{display:block;color:#365a68;font-size:15px;line-height:1.45}
+.spotlight-feature-card h3{font:700 clamp(31px,3vw,42px)/1.02 Georgia,'Times New Roman',serif;letter-spacing:-.04em;color:#193744;margin:0}
+.spotlight-feature-card p{margin:0;color:#4a5f68;font-size:16px;line-height:1.65}
+.spotlight-feature-tags{display:flex;flex-wrap:wrap;gap:9px;margin:0;padding:0;list-style:none}
+.spotlight-feature-tags li{padding:8px 12px;border-radius:999px;background:#2a51620d;border:1px solid rgba(39,89,108,.12);font-size:12px;font-weight:700;color:#2a5162}
+.spotlight-feature-quote{margin-top:auto;padding-top:8px;border-top:1px solid rgba(41,74,90,.12);font:italic 25px/1.15 Georgia,'Times New Roman',serif;color:#284b5b}
+.spotlight-feature-foot{display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:800;letter-spacing:.12em;color:#5a7886;text-transform:uppercase}
+
+/* JOIN SECTION */
+.join{background:#7bbdd3;color:#173340;padding:80px max(28px,calc((100vw - 1250px)/2)) 45px}
+.join .kicker{font-size:12px;letter-spacing:.18em;font-weight:800;color:#2d6678;text-transform:uppercase;margin:0 0 20px}
+.join h2{font:650 clamp(54px,7vw,105px)/.98 Georgia,serif;letter-spacing:-.06em;margin:0 0 18px}
+.join p{font-size:20px;line-height:1.55;max-width:750px}
+.cta{display:flex;gap:16px;flex-wrap:wrap;margin:36px 0 70px}
+.cta a{border-radius:40px;border:1px solid #2d6678;padding:15px 25px;text-decoration:none;font-weight:700}
+.cta a:first-child{background:#243b46;color:#fff}
+
+/* FOOTER */
+.v16-footer{background:#12242e;color:#f5ede0;padding:48px max(24px,calc((100vw - 1240px)/2)) 26px;border-top:1px solid #eee3d233}
+.v16-footgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:42px;align-items:start}
+.v16-footer .foot-logo{width:180px;margin-bottom:22px}
+.v16-footer h3{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:#9dc7d7;margin:0 0 20px}
+.v16-footer p{font-size:14px;line-height:1.75;color:#d0d6d4;margin:0 0 12px;max-width:330px}
+.v16-footer nav{display:grid;gap:12px}
+.v16-footer a{text-decoration:none;color:#fff2e7;font-size:14px}
+.v16-footer a:hover{text-decoration:underline;color:#a5dbef}
+.v16-footbottom{border-top:1px solid #ffffff28;margin-top:44px;padding-top:20px;display:flex;gap:14px;align-items:center;justify-content:space-between;color:#bac6ca;font-size:11px;line-height:1.5;flex-wrap:wrap}
+
+/* MEDIA QUERIES */
+@media(max-width:900px){
+    .header .links{display:none}
+    .header details{display:block}
+    .book-area{padding:8px 18px 65px}
+    .book-viewport { height: 75vh; }
+    .page .sheet{aspect-ratio:unset;border-radius:10px;background:#f1e7d8}
+    .page .art-wrap{aspect-ratio:unset;display:flex;flex-direction:column}
+    .page .art-wrap img{width:100%;height:clamp(310px,64vw,510px);object-fit:cover;object-position:72% center}
+    .caption-block{position:relative;left:auto;top:auto;width:auto;background:#f2e8da;padding:30px 27px 38px}
+    .caption-block:before{display:none}
+    .caption-block h2{font-size:clamp(36px,7vw,62px)}
+    .caption-block p{font-size:18px}
+    .chapnum{display:none}
+    .home-welcome-grid{grid-template-columns:1fr;gap:35px;padding:65px 28px 55px}
+    .spotlight-layout{grid-template-columns:1fr;gap:22px; padding: 0 24px;}
+}
+@media(max-width:560px){
+    .header{height:76px;padding:14px 17px}
+    .header img{width:129px}
+    .tools{gap:7px}
+    .donate{padding:10px 12px;font-size:11px}
+    .home-hero-wordmark{width:min(84vw,330px);}
+    .home-welcome h1{font-size:clamp(43px,11vw,56px)}
+    .spotlight-feature-card h3{font-size:32px}
+    .v16-footgrid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .fade-in-section { transition: none; opacity: 1; transform: none; }
+}
+
+/* Chapter Specific Full Bleed overrides */
+@media(min-width:901px){
+    #page4 .art-wrap img, #page5 .art-wrap img, #page6 .art-wrap img, #page7 .art-wrap img {object-fit:contain;}
+    #page4 .caption-block, #page5 .caption-block, #page6 .caption-block, #page7 .caption-block {display:none;}
+}
+</style>
+<meta content="Vital’nya is het Oekraïense Huis in Utrecht: een warme ontmoetingsplek voor gemeenschap, taal, cultuur en steun. Ontdek ons verhaal en programma." name="description"/>
+<meta name="robots" content="noindex,nofollow,noarchive">
+</head>
+<body>
+<input checked="" class="language-state" id="nl" name="lang" type="radio"/>
+<input class="language-state" id="uk" name="lang" type="radio"/>
+
+<div class="site">
+<header class="header">
+  <a aria-label="Vital’nya home" href="index.html#intro"><img alt="Vital’nya" src="assets/logo-horizontal.png"/></a>
+  <nav aria-label="Hoofdnavigatie" class="links">
+    <a aria-current="page" href="index.html#story"><span class="nl">Het verhaal</span><span class="uk" lang="uk">Історія</span></a>
+    <a href="programma.html"><span class="nl">Programma</span><span class="uk" lang="uk">Програма</span></a>
+    <a href="doe-mee.html"><span class="nl">Doe mee</span><span class="uk" lang="uk">Долучитися</span></a>
+    <a href="contact.html"><span class="nl">Contact</span><span class="uk" lang="uk">Контакт</span></a>
+  </nav>
+  <div class="tools">
+    <div aria-label="Taal" class="language">
+      <label aria-label="Nederlands" for="nl" role="button" tabindex="0">NL</label>/<label aria-label="Українська" for="uk" role="button" tabindex="0">УКР</label>
+    </div>
+    <a class="donate" href="doe-mee.html#mogelijkheden" rel="noopener noreferrer" target="_blank">
+      <span class="nl">Steun ons ↗</span><span class="uk" lang="uk">Підтримати ↗</span>
+    </a>
+    <details>
+      <summary aria-label="Menu openen">☰</summary>
+      <nav aria-label="Mobiele navigatie">
+        <a aria-current="page" href="index.html#story"><span class="nl">Het verhaal</span><span class="uk" lang="uk">Історія</span></a>
+        <a href="programma.html"><span class="nl">Programma</span><span class="uk" lang="uk">Програма</span></a>
+        <a href="doe-mee.html"><span class="nl">Doe mee</span><span class="uk" lang="uk">Долучитися</span></a>
+        <a href="contact.html"><span class="nl">Contact</span><span class="uk" lang="uk">Контакт</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main>
+<section class="home-community-hero fade-in-section" aria-label="Vital’nya community today">
+  <div class="home-community-image">
+    <!-- Image matches Reference Background -->
+    <img class="bg-photo" src="487755091_18454767298076177_8842649699195946450_n.jpg" width="1440" height="1081" fetchpriority="high" alt="Groepsfoto van leden van de Vital’nya-gemeenschap in Utrecht." />
+    <!-- Image matches Reference Foreground Wordmark -->
+    <div class="home-hero-wordmark" aria-hidden="true"><img src="logo_nobackground__WORD.png" width="2048" height="428" alt=""/></div>
+    <div class="home-community-bottom" aria-hidden="true">
+      <span class="nl">ECHTE MENSEN. ECHTE VERHALEN.</span><span class="uk" lang="uk">СПРАВЖНІ ЛЮДИ. СПРАВЖНІ ІСТОРІЇ.</span>
+      <span>UTRECHT · 2022 — NU</span>
+    </div>
+  </div>
+</section>
+
+<section class="home-welcome fade-in-section" id="intro" aria-labelledby="home-welcome-heading">
+  <div class="home-welcome-grid">
+    <div class="home-welcome-content">
+      <div class="home-welcome-overline"><span class="home-welcome-line"></span><span class="nl">WELKOM BIJ VITAL’NYA</span><span class="uk" lang="uk">ЛАСКАВО ПРОСИМО ДО ВІТАЛЬНІ</span></div>
+      <h1 id="home-welcome-heading"><span class="nl">Een tweede thuis,<br><em>ver van huis.</em></span><span class="uk" lang="uk">Другий дім,<br><em>далеко від дому.</em></span></h1>
+      <h2><span class="nl">Het Oekraïense Huis in Utrecht</span><span class="uk" lang="uk">Український дім в Утрехті</span></h2>
+      <p class="home-welcome-paragraph"><span class="nl">Vital’nya is een warme ontmoetingsplek voor en door Oekraïners, samen met Utrechters. Sinds 2022 brengen we mensen samen om elkaar te steunen, talen te oefenen, cultuur te delen en zelf activiteiten te organiseren.</span><span class="uk" lang="uk">Вітальня — це теплий простір для українців і мешканців Утрехта. З 2022 року ми об’єднуємо людей, підтримуємо одне одного, вивчаємо мови, ділимося культурою та разом організовуємо події.</span></p>
+      <div class="home-welcome-actions">
+        <a href="programma.html" class="home-btn-primary"><span class="nl">Ontdek ons programma</span><span class="uk" lang="uk">Наша програма</span><span aria-hidden="true">↗</span></a>
+        <a href="doe-mee.html" class="home-btn-secondary"><span class="nl">Doe mee</span><span class="uk" lang="uk">Долучитися</span><span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="home-welcome-definition"><span class="home-definition-mark" aria-hidden="true">✳</span><span class="nl"><b>Вітальня / Vital’nya</b> betekent ‘huiskamer’ in het Oekraïens.</span><span class="uk" lang="uk"><b>Вітальня</b> — місце, де всі можуть почуватися як удома.</span></p>
+    </div>
+    <figure class="home-welcome-photo">
+      <div class="home-photo-frame"><img src="assets/community-evening-v19.webp" width="452" height="509" loading="lazy" alt="Vital’nya-gemeenschap samen buiten in Utrecht tijdens een avondbijeenkomst." /></div>
+      <figcaption><span class="nl">Een gemeenschap die samenkomt, ook buiten de huiskamer.</span><span class="uk" lang="uk">Спільнота, яка зустрічається і поза межами вітальні.</span></figcaption>
+    </figure>
+  </div>
+  <div class="home-welcome-edge" aria-hidden="true"><span>VITAL’NYA</span><span>UKRAINIAN HOUSE UTRECHT</span><span>ВІТАЛЬНЯ</span></div>
+</section>
+
+<section class="book-area fade-in-section" id="story">
+<div class="story-preface">
+  <div>
+    <p class="story-preface-label"><span class="nl">ONS VERHAAL · 7 HOOFDSTUKKEN</span><span class="uk" lang="uk">НАША ІСТОРІЯ · 7 РОЗДІЛІВ</span></p>
+    <h2><span class="nl">Een huiskamer werd een gemeenschap.</span><span class="uk" lang="uk">Вітальня стала спільнотою.</span></h2>
+    <p><span class="nl">In 2022 begon het met een open deur. Ontdek in zeven geïllustreerde hoofdstukken hoe Vital’nya groeide.</span><span class="uk" lang="uk">У 2022 році все почалося з відчинених дверей. Дізнайтеся із семи ілюстрованих розділів, як зростала Вітальня.</span></p>
+  </div>
+  <a class="story-preface-link" href="#bookViewport"><span class="nl">Ontdek het verhaal ↓</span><span class="uk" lang="uk">Гортайте нашу історію ↓</span></a>
+</div>
+<div class="sup"><div><b>VITAL’NYA</b> / <span class="nl">EEN GEÏLLUSTREERD VERHAAL · 2022 — NU</span><span class="uk" lang="uk">ІЛЮСТРОВАНА ІСТОРІЯ · 2022 — СЬОГОДНІ</span></div><div><span class="nl">EEN OPEN BOEK</span><span class="uk" lang="uk">ВІДКРИТА КНИГА</span></div></div>
+
+<div class="book-viewport" id="bookViewport">
+    <section aria-label="Een open deur in Utrecht" class="page" id="page1">
+      <div class="sheet"><div class="art-wrap"><img alt="Illustrated open book: Het begin, een open deur in Utrecht" loading="eager" src="assets/spread_01.webp"/><p class="visually-hidden">Een huiskamer waar mensen elkaar konden vinden.</p></div></div>
+    </section>
+    <section aria-label="Van idee naar werkelijkheid" class="page" id="page2">
+      <div class="sheet"><div class="art-wrap"><img alt="Illustrated collage chapter 2: Van idee naar werkelijkheid" loading="lazy" src="assets/spread_02.webp"/>
+      <div class="caption-block"><small><span class="nl">02 / Juni 2022</span><span class="uk" lang="uk">02 / Червень 2022</span></small><h2><span class="nl">De eerste stappen</span><span class="uk" lang="uk">Перші кроки</span></h2><em><span class="nl">Van idee naar werkelijkheid</span><span class="uk" lang="uk">Від ідеї до реальності</span></em><p><span class="nl">Vrijwilligers en partners gaven de eerste ontmoetingen een blijvende vorm.</span><span class="uk" lang="uk">Волонтери та партнери допомогли створити сталу спільноту.</span></p></div></div></div>
+    </section>
+    <section aria-label="Een groeiende gemeenschap" class="page" id="page3">
+      <div class="sheet"><div class="art-wrap"><img alt="Illustrated collage chapter 3: Een groeiende gemeenschap" loading="lazy" src="assets/spread_03.webp"/>
+      <div class="caption-block"><small><span class="nl">03 / 2023</span><span class="uk" lang="uk">03 / 2023</span></small><h2><span class="nl">Samen verder</span><span class="uk" lang="uk">Разом далі</span></h2><em><span class="nl">Een groeiende gemeenschap</span><span class="uk" lang="uk">Спільнота зростає</span></em><p><span class="nl">Gesprekken werden vriendschappen. De gemeenschap groeide.</span><span class="uk" lang="uk">Розмови ставали дружбою. Спільнота зростала.</span></p></div></div></div>
+    </section>
+    <section aria-label="Van de huiskamer naar de stad" class="page" id="page4">
+      <div class="sheet"><div class="art-wrap"><img alt="Cultuur verbindt" loading="lazy" src="assets/spread_04.webp"/></div></div>
+    </section>
+    <section aria-label="Een net van herinnering" class="page" id="page5">
+      <div class="sheet"><div class="art-wrap"><img alt="Samen herdenken (Memory Net)" loading="lazy" src="assets/spread_05.webp"/></div></div>
+    </section>
+    <section aria-label="Zorg, herstel en wederzijdse steun" class="page" id="page6">
+      <div class="sheet"><div class="art-wrap"><img alt="Samen sterker" loading="lazy" src="assets/spread_06.webp"/></div></div>
+    </section>
+    <section aria-label="Schrijf mee aan het volgende hoofdstuk" class="page" id="page7">
+      <div class="sheet"><div class="art-wrap"><img alt="Schrijf mee" loading="lazy" src="assets/spread_07.webp"/></div></div>
+    </section>
+</div>
+</section>
+
+<section aria-labelledby="home-program-title" class="program spotlight-program fade-in-section" id="home-program">
+<div class="spotlight-head"><div class="kicker">VITAL’NYA / PROGRAMMA</div><div class="spotlight-period">NOVEMBER · <span class="nl">UITGELICHT</span><span class="uk" lang="uk">ВИБРАНЕ</span></div></div>
+<div class="spotlight-layout">
+  <div class="spotlight-content">
+  <p class="spotlight-overline"><span class="spotlight-blue-dot"></span> <span class="nl">Uit het maandprogramma</span><span class="uk" lang="uk">З місячної програми</span></p>
+  <h2 id="home-program-title"><span class="nl">Workshops voor &amp; door de community</span><span class="uk" lang="uk">Майстер-класи для спільноти та від спільноти</span></h2>
+  <p class="spotlight-description"><span class="nl">Een plek waar ideeën handen en voeten krijgen. Communityleden delen hun kennis, creativiteit en ervaringen met elkaar.</span><span class="uk" lang="uk">Простір, де ідеї стають реальністю. Учасники спільноти діляться знаннями, творчістю та досвідом.</span></p>
+  <div class="spotlight-meta"><span>✳ <span class="nl">Vrijdag &amp; zondag</span><span class="uk" lang="uk">П’ятниця й неділя</span></span><span>◷ <span class="nl">Wekelijkse activiteit</span><span class="uk" lang="uk">Щотижнева подія</span></span></div>
+  <a class="spotlight-cta" href="programma.html#program"><span class="nl">Bekijk het volledige programma</span><span class="uk" lang="uk">Переглянути повну програму</span> <span aria-hidden="true">↗</span></a>
+  </div>
+  <div aria-hidden="true" class="spotlight-art spotlight-feature-card">
+  <div class="spotlight-feature-top">
+  <div class="spotlight-feature-kicker"><span class="nl">Uitgelichte activiteit</span><span class="uk" lang="uk">Головна подія</span></div>
+  <div class="spotlight-feature-brand"><img src="assets/logo-horizontal.png" alt=""/></div>
+  </div>
+  <h3><span class="nl">Community workshops</span><span class="uk" lang="uk">Майстер-класи спільноти</span></h3>
+  <p><span class="nl">Een open moment waarop communityleden elkaar ontmoeten, kennis delen en samen iets maken.</span><span class="uk" lang="uk">Відкрита подія, де учасники спільноти зустрічаються, діляться знаннями й створюють щось разом.</span></p>
+  <div class="spotlight-feature-schedule">
+  <div class="spotlight-feature-slot"><strong><span class="nl">Vrijdag</span><span class="uk" lang="uk">П’ятниця</span></strong><span>18:00 — 21:00</span></div>
+  <div class="spotlight-feature-slot"><strong><span class="nl">Zondag</span><span class="uk" lang="uk">Неділя</span></strong><span>10:00 — 19:30</span></div>
+  </div>
+  <ul class="spotlight-feature-tags">
+  <li><span class="nl">Voor &amp; door de community</span><span class="uk" lang="uk">Від спільноти — для спільноти</span></li>
+  <li><span class="nl">Creatief</span><span class="uk" lang="uk">Творчість</span></li>
+  <li><span class="nl">Iedereen welkom</span><span class="uk" lang="uk">Запрошуємо всіх</span></li>
+  </ul>
+  <div class="spotlight-feature-quote"><span class="nl">Een plek om ideeën te delen.</span><span class="uk" lang="uk">Місце, де можна ділитися ідеями.</span></div>
+  <div class="spotlight-feature-foot"><span>VITAL’NYA</span><span>NOVEMBER</span></div>
+  </div>
+</div>
+</section>
+
+<section class="join fade-in-section" id="join"><p class="kicker"><span class="nl">Het volgende hoofdstuk</span><span class="uk" lang="uk">Наступний розділ</span></p><h2><span class="nl">Schrijf mee aan het verhaal.</span><span class="uk" lang="uk">Пишіть історію разом з нами.</span></h2><p><span class="nl">Kom langs, deel een idee of help mee. De volgende bladzijde ontstaat dankzij iedereen die deelneemt.</span><span class="uk" lang="uk">Приходьте, діліться ідеями або долучайтеся. Наступна сторінка народжується завдяки всім учасникам.</span></p><div class="cta"><a href="contact.html"><span class="nl">Bezoek Vital’nya ↗</span><span class="uk" lang="uk">Завітайте до Вітальні ↗</span></a><a href="doe-mee.html"><span class="nl">Doe mee ↗</span><span class="uk" lang="uk">Долучитися ↗</span></a><a href="doe-mee.html#mogelijkheden" rel="noopener noreferrer" target="_blank"><span class="nl">Steun de organisatie ↗</span><span class="uk" lang="uk">Підтримати організацію ↗</span></a></div></section>
+</main>
+
+<footer class="v16-footer" id="site-footer">
+  <div class="v16-footgrid">
+    <div><img alt="Vital’nya" class="foot-logo" src="assets/logo-horizontal.png"/><p><span class="nl">Een tweede thuis, ver van huis. Een gemeenschap waar verhalen, cultuur en mensen samenkomen.</span><span class="uk" lang="uk">Другий дім далеко від дому. Спільнота, де зустрічаються люди, культура та історії.</span></p><p>Euclideslaan 60<br/>3584 BN Utrecht</p></div>
+    <div><h3><span class="nl">Ontdek</span><span class="uk" lang="uk">Відкрийте</span></h3><nav><a href="index.html#story"><span class="nl">Het verhaal</span><span class="uk" lang="uk">Історія</span></a><a href="programma.html"><span class="nl">Programma</span><span class="uk" lang="uk">Програма</span></a><a href="doe-mee.html"><span class="nl">Doe mee</span><span class="uk" lang="uk">Долучитися</span></a><a href="contact.html"><span class="nl">Contact</span><span class="uk" lang="uk">Контакт</span></a></nav></div>
+    <div><h3><span class="nl">Blijf in contact</span><span class="uk" lang="uk">Залишаймося на зв’язку</span></h3><nav><a href="mailto:welkom@vitalnya.nl">welkom@vitalnya.nl</a><a href="https://www.instagram.com/vitalnya_ua/" rel="noopener noreferrer" target="_blank">Instagram ↗</a><a href="doe-mee.html#mogelijkheden" rel="noopener noreferrer" target="_blank"><span class="nl">Doneer ↗</span><span class="uk" lang="uk">Підтримати ↗</span></a><a href="https://vitalnya.nl/privacy-policy/" rel="noopener noreferrer" target="_blank"><span class="nl">Privacyverklaring ↗</span><span class="uk" lang="uk">Політика конфіденційності ↗</span></a></nav></div>
+  </div>
+  <div class="v16-footbottom"><span>© <span class="current-year">2026</span> Stichting Vital’nya · KvK 86749277 · RSIN 864075510</span><span><span class="nl">Illustraties zijn artistieke verbeeldingen, geen archieffoto’s.</span><span class="uk" lang="uk">Ілюстрації — художні інтерпретації, а не архівні світлини.</span></span></div>
+</footer>
+</div>
+
+<script>
+// Scroll Animation Observer for Section Fade-Ins
+document.addEventListener("DOMContentLoaded", function() {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15 
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in-section').forEach(section => {
+    observer.observe(section);
+  });
+});
+
+// Bilingual Logic
+(function(){
+  var nl=document.getElementById('nl'), uk=document.getElementById('uk');
+  if(!nl || !uk)return;
+  try {var stored=localStorage.getItem('vitalnya-language'); if(stored==='uk')uk.checked=true; else if(stored==='nl')nl.checked=true;}catch(e){}
+  [nl,uk].forEach(function(radio){radio.addEventListener('change',function(){try{localStorage.setItem('vitalnya-language',radio.id)}catch(e){}})});
+  document.querySelectorAll('label[for="nl"],label[for="uk"]').forEach(function(label){
+    label.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();var radio=document.getElementById(label.getAttribute('for'));radio.checked=true;radio.dispatchEvent(new Event('change',{bubbles:true}));}});
+  });
+  document.querySelectorAll('.current-year').forEach(function(e){e.textContent=new Date().getFullYear()});
+})();
+</script>
+</body>
+</html>

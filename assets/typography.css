@@ -1,0 +1,4 @@
+@font-face{font-family:"Noto Serif Display";src:url("fonts/noto-serif-display.ttf") format("truetype");font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:"Noto Serif Display";src:url("fonts/noto-serif-display-italic.ttf") format("truetype");font-style:italic;font-weight:100 900;font-display:swap}
+/* Heading trial; body text and navigation retain their existing fonts. */
+h1,h2,#home-welcome-heading,.story-dialog h2,.portrait h3{font-family:"Noto Serif Display",Georgia,serif!important;font-weight:500!important;letter-spacing:-.035em!important;line-height:1.08!important}

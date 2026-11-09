@@ -1,0 +1,5 @@
+/* Keep navigation available while the page scrolls. */
+html{scroll-padding-top:100px}
+.header{position:sticky;top:0;z-index:100;background:#13232d;max-width:none;width:100%}
+@media(min-width:1420px){.header{padding-inline:max(30px,calc((100% - 1360px)/2))}}
+@media(max-width:900px){html{scroll-padding-top:90px}.header details[open] nav{max-height:calc(100dvh - 100px);overflow-y:auto}}

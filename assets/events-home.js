@@ -5,6 +5,8 @@
  const controls = document.querySelector('.ev-home-controls');
  const mobile = matchMedia('(max-width:700px)');
  const reduced = matchMedia('(prefers-reduced-motion:reduce)');
+ const total = controls.querySelector('[data-event-total]');
+ if (total) total.textContent = String(cards.length).padStart(2, '0');
  let current = 0;
  function update() {
   const center = track.getBoundingClientRect().left + track.clientWidth / 2;

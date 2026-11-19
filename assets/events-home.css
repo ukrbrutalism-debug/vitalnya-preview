@@ -3,7 +3,7 @@
 .ev-home .ev-eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;margin:0 0 24px}
 .ev-home h2{font-size:clamp(40px,5vw,64px);margin:0}
 .ev-home-heading>a{font-size:13px;text-underline-offset:6px}
-.ev-home-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.ev-home-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
 .ev-home-card{display:block;min-width:0;text-decoration:none}
 .ev-home-card img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
 .ev-home-copy{padding-top:20px}
@@ -34,3 +34,5 @@
 .ev-home-position{font-size:12px;font-weight:600;letter-spacing:.19em;color:#c2ced2;font-variant-numeric:tabular-nums}
 .ev-home-position b{color:#e8c686}
 }
+
+@media(min-width:701px) and (max-width:1000px){.ev-home-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}

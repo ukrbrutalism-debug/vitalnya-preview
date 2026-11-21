@@ -128,7 +128,7 @@ body{min-width:320px}
 #nl:checked~.site .uk,#uk:checked~.site .nl{display:none!important}
 .v16-footer{background:#12242e;color:#f5ede0;padding:48px max(24px,calc((100vw - 1240px)/2)) 26px;border-top:1px solid #eee3d233}
 .v16-footgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:42px;align-items:start}
-.v16-footer .foot-logo{width:180px;margin-bottom:22px}
+.v16-footer .foot-logo{display:block;width:180px;max-width:100%;height:auto;object-fit:contain;margin-bottom:22px}
 .v16-footer h3{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:#9dc7d7;margin:0 0 20px}
 .v16-footer p{font-size:14px;line-height:1.75;color:#d0d6d4;margin:0 0 12px;max-width:330px}
 .v16-footer nav{display:grid;gap:12px}
